@@ -4,7 +4,7 @@
 import os  # Operating system interface.
 from box.exceptions import BoxValueError  # Exception for the box library.
 import yaml  # YAML parser and emitter for Python.
-from mlProject import logger  # Logger specific to the mlProject package.
+from mlproject import logger  # Logger specific to the mlProject package.
 import json  # JSON encoder and decoder.
 import joblib  # Library for parallel processing in Python.
 from ensure import ensure_annotations  # Decorator for type hints checking.
