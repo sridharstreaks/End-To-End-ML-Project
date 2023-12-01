@@ -1,0 +1,16 @@
+# File: requirements.txt
+# Purpose: Contains a list of required Python packages and their versions for the machine learning project.
+
+pandas           # Data manipulation library
+notebook         # Interactive computing environment
+numpy            # Numerical computing library
+scikit-learn     # Machine learning library
+matplotlib       # Plotting library
+python-box==6.0.2  # Python dict subclass with attribute-style access and YAML support (version 6.0.2)
+pyYAML           # YAML parser and emitter for Python
+ensure==1.0.2    # Version control library (version 1.0.2)
+joblib           # Library for parallel processing in Python
+types-pyYAML     # Type hints for pyYAML library
+Flask            # Web framework for Python
+Flask-Cors       # Core functionality for Flask web framework
+-e .             # Finds and installs setup.py
