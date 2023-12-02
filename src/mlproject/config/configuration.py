@@ -3,7 +3,7 @@
 # Importing constants and utility functions from mlproject package.
 from mlproject.constants import *
 from mlproject.utils.common import read_yaml,create_directories
-from mlproject.entity.config_entity import DataIngestionConfig,DataValidationConfig
+from mlproject.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig
 
 # Purpose: Definition of the ConfigurationManager class for managing project configurations.
 
@@ -77,3 +77,24 @@ class ConfigurationManager:
         )
 
         return data_validation_config
+    
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        """
+        Retrieves the configuration for data transformation.
+
+        Returns:
+            DataTransformationConfig: Data class containing data transformation configuration.
+        """
+        # Extracting data transformation configuration from the overall project configuration.
+        config = self.config.data_transformation
+
+        # Creating the root directory for data transformation artifacts.
+        create_directories([config.root_dir])
+
+        # Creating a DataTransformationConfig object with the extracted configuration.
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+        )
+
+        return data_transformation_config
