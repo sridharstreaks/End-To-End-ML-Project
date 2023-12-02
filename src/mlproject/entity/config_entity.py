@@ -43,3 +43,26 @@ class DataTransformationConfig:
     """
     root_dir: Path
     data_path: Path
+
+
+@dataclass(frozen=True)
+class ModelTrainerConfig:
+    """
+    Data class for configuration related to model training.
+
+    Attributes:
+        root_dir (Path): Root directory for model training artifacts.
+        train_data_path (Path): Path to the training data CSV file.
+        test_data_path (Path): Path to the test data CSV file.
+        model_name (str): File name for saving the trained machine learning model.
+        alpha (float): Regularization strength for models that support regularization.
+        l1_ratio (float): The mixing parameter for elastic net regularization.
+        target_column (str): Name of the target column in the dataset.
+    """
+    root_dir: Path
+    train_data_path: Path
+    test_data_path: Path
+    model_name: str
+    alpha: float
+    l1_ratio: float
+    target_column: str

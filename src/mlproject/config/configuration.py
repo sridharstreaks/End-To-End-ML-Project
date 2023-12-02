@@ -3,7 +3,10 @@
 # Importing constants and utility functions from mlproject package.
 from mlproject.constants import *
 from mlproject.utils.common import read_yaml,create_directories
-from mlproject.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig
+from mlproject.entity.config_entity import (DataIngestionConfig,
+                                            DataValidationConfig,
+                                            DataTransformationConfig,
+                                            ModelTrainerConfig)
 
 # Purpose: Definition of the ConfigurationManager class for managing project configurations.
 
@@ -98,3 +101,33 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+    
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        """
+        Retrieves the configuration for model training.
+
+        Returns:
+            ModelTrainerConfig: Data class containing model training configuration.
+        """
+        # Extracting model trainer configuration, ElasticNet parameters, and target column from the overall project configuration.
+        config = self.config.model_trainer
+        params = self.params.ElasticNet
+        schema = self.schema.TARGET_COLUMN
+
+        # Creating the root directory for model training artifacts.
+        create_directories([config.root_dir])
+
+        # Creating a ModelTrainerConfig object with the extracted configuration.
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            alpha=params.alpha,
+            l1_ratio=params.l1_ratio,
+            target_column=schema.name
+        )
+
+        return model_trainer_config
+
