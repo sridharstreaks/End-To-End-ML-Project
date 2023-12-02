@@ -66,3 +66,24 @@ class ModelTrainerConfig:
     alpha: float
     l1_ratio: float
     target_column: str
+
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    """
+    Data class for configuration related to model evaluation.
+
+    Attributes:
+        root_dir (Path): Root directory for model evaluation artifacts.
+        test_data_path (Path): Path to the test data CSV file.
+        model_path (Path): Path to the trained machine learning model.
+        all_params (dict): Dictionary containing all relevant parameters for model evaluation.
+        metric_file_name (Path): File name for saving model evaluation metrics.
+        target_column (str): Name of the target column in the dataset.
+    """
+    root_dir: Path
+    test_data_path: Path
+    model_path: Path
+    all_params: dict
+    metric_file_name: Path
+    target_column: str
