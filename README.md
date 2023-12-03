@@ -29,3 +29,39 @@ Common skeleton for end to end ml project with deployment
 
 ## 9. Update app.py
    - If applicable, update the application script or module for any changes related to deployment or interaction with the user interface.
+
+
+# How to run?
+### STEPS:
+
+Clone the repository
+
+```bash
+https://github.com/sridharstreaks/End-To-End-ML-Project/
+```
+### STEP 01- Create a conda environment after opening the repository
+
+```bash
+conda create -n mlproj python=3.8 -y
+```
+
+```bash
+conda activate mlproj
+```
+
+
+### STEP 02- install the requirements
+```bash
+pip install -r requirements.txt
+```
+
+
+```bash
+# Finally run the following command
+python app.py
+```
+
+Now,
+```bash
+open up you local host and port
+```
